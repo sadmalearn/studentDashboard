@@ -3,7 +3,6 @@ const stu = require('../Models/studentModel')
 const addStudent = async (req, res) => {
     console.log("request", req.body);
     const { name, email, mobile, standard } = req.body;
-    const newStudent = req.body;
 
     const studentInfo = await stu.findOne({ name })
     if (studentInfo) {
@@ -37,7 +36,7 @@ const getAllStudents = async (req, res) => {
 
 }
 
-    // Get all student
+    // Delete student
     const deleteStudent = async (req, res) => {
         const { id } = req.body
         const studentInfo = await stu.deleteOne({ _id:id})
@@ -46,9 +45,11 @@ const getAllStudents = async (req, res) => {
         } else {
             res.send({ message: 'Something Went wrong' })
         }
-
     }
+const welcome = async (req,res) =>{
+    res.send({message : 'Welcome to Our Login.....'})
+    console.log('welcome');
+} 
 
 
-
-module.exports = { addStudent, getAllStudents, deleteStudent }
+module.exports = { welcome,addStudent, getAllStudents, deleteStudent }

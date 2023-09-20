@@ -11,6 +11,7 @@ app.use(express.json());
 // app.use(bodyparser.json())
 
 app.use('/api',require('./Routes/StudentRoute'))
+app.use('/api',require('./Routes/teacherRoute'))
 
 
 app.listen(3000,()=>{
