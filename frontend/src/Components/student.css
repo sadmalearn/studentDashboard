@@ -1,0 +1,27 @@
+
+.Modal {
+    display: block;
+    padding: 1rem;
+    width: 80%;
+    background: #fff;
+    max-width: 80%;
+    border-radius: 5px;
+    outline: transparent;
+    transition: all 0.5s ease-in-out;
+    animation: show 0.2s;
+    transform: scale(1);
+  }
+  .Overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+    bottom: 0;
+    left: 0;
+    background-color: #0000005e;
+    animation: show 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+  }

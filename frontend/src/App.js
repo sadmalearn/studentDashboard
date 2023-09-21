@@ -1,5 +1,5 @@
 import './App.css';
-import Welcome from './Components/welcome'; // Corrected component name to start with a capital letter
+import Welcome from './Components/student'; // Corrected component name to start with a capital letter
 
 function App() {
   return (

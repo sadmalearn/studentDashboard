@@ -1,7 +1,7 @@
 const stu = require('../Models/studentModel')
 
 const addStudent = async (req, res) => {
-    console.log("request", req.body);
+    console.log("request", req);
     const { name, email, mobile, standard } = req.body;
 
     const studentInfo = await stu.findOne({ name })
@@ -23,6 +23,20 @@ const addStudent = async (req, res) => {
 
 }
 
+const editStudentDetails = async(req, res) =>{
+    console.log(req.body);
+    const { _id, name, email, mobile, standard } = req.body;
+    const updatedStudent = await stu.findByIdAndUpdate(
+        _id,
+        { name, email, mobile, standard },
+        {new : true}
+    )
+    if (updatedStudent) {
+        res.send({message : 'updated succesfully'})
+    }else{
+        res.send({message : 'swr'})
+    }
+}
 
 // Get all student
 const getAllStudents = async (req, res) => {
@@ -38,6 +52,7 @@ const getAllStudents = async (req, res) => {
 
     // Delete student
     const deleteStudent = async (req, res) => {
+        console.log("req Delete",req.body);
         const { id } = req.body
         const studentInfo = await stu.deleteOne({ _id:id})
         if (studentInfo) {
@@ -52,4 +67,4 @@ const welcome = async (req,res) =>{
 } 
 
 
-module.exports = { welcome,addStudent, getAllStudents, deleteStudent }
+module.exports = { welcome,addStudent, getAllStudents, deleteStudent, editStudentDetails}
